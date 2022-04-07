@@ -21,7 +21,7 @@ namespace MyDeal.TechTest.Controllers
             {
                 User = UserService.GetUserDetails("2")?.Data,
                 Message = _configuration.GetValue<string>("Settings:Message")
-        }, JsonRequestBehavior.AllowGet);
+            });
         }
     }
 }
