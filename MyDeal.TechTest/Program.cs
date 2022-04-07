@@ -7,10 +7,7 @@ builder.Services.AddControllersWithViews();
 
 //builder.Services.AddScoped<IUserService, UserService>();
 
-builder.Services.AddHttpClient<IUserService, UserService>(c =>
-{
-    c.BaseAddress = new Uri("https://reqres.in");
-});
+builder.Services.RegisterHttpClient();
 
 var app = builder.Build();
 
