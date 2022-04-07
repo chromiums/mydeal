@@ -23,7 +23,7 @@ namespace MyDeal.TechTest.Controllers
 
             return Json(new SettingsVm
             {
-                User = userResponse?.Data,
+                User = userResponse,
                 Message = _configuration.GetValue<string>("Settings:Message")
             }, new JsonSerializerOptions { PropertyNamingPolicy = null });
         }

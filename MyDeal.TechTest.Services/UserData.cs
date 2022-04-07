@@ -2,7 +2,7 @@
 
 namespace MyDeal.TechTest.Services
 {
-    public class UserData
+    internal class UserData
     {
         [JsonPropertyName("data")]
         public User Data { get; set; }

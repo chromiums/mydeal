@@ -2,6 +2,6 @@
 {
     public interface IUserService
     {
-        Task<UserData?> GetUserDetails(string userId);
+        Task<User?> GetUserDetails(string userId);
     }
 }

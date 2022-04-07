@@ -12,13 +12,13 @@ namespace MyDeal.TechTest.Services
             _httpClient = httpClient;
         }
 
-        public async Task<UserData?> GetUserDetails(string userId)
+        public async Task<User?> GetUserDetails(string userId)
         {
             var response = await _httpClient.GetAsync("/api/users/" + userId);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
 
-            return JsonSerializer.Deserialize<UserData>(responseBody);
+            return JsonSerializer.Deserialize<UserData>(responseBody)?.Data;
         }
     }
 }
