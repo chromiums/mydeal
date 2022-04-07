@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyDeal.TechTest.Services;
+using MyDeal.TechTest.Models;
+
 
 namespace MyDeal.TechTest.Controllers
 {
