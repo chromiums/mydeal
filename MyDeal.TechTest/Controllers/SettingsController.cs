@@ -21,6 +21,7 @@ namespace MyDeal.TechTest.Controllers
         {
             var userResponse = await _userService.GetUserDetails("2");
 
+            // Setting PropertyNamingPolicy to null so that it doesn't auto camel-case all property names 
             return Json(new SettingsVm
             {
                 User = userResponse,
