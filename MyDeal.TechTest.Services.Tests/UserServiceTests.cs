@@ -1,6 +1,5 @@
 using Moq;
 using Moq.Protected;
-using RichardSzalay.MockHttp;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
