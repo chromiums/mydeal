@@ -21,3 +21,5 @@
 | Change UserService to accept IDs (if necessary) | [ ] |
 | Setup response caching if workload increases | [ ] |
 | Additional Unit Tests | [ ] |
+| Setup Error handling | [ ] |
+| Setup Logging | [ ] |
