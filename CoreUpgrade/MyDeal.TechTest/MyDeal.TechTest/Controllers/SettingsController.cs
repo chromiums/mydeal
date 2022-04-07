@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyDeal.TechTest.Services;
 using MyDeal.TechTest.Models;
-
+using System.Text.Json;
 
 namespace MyDeal.TechTest.Controllers
 {
@@ -21,7 +21,7 @@ namespace MyDeal.TechTest.Controllers
             {
                 User = UserService.GetUserDetails("2")?.Data,
                 Message = _configuration.GetValue<string>("Settings:Message")
-            });
+            }, new JsonSerializerOptions { PropertyNamingPolicy = null });
         }
     }
 }
