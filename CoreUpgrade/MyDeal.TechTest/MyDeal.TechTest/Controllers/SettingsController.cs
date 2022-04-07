@@ -7,14 +7,21 @@ namespace MyDeal.TechTest.Controllers
 {
     public class SettingsController : Controller
     {
+        private IConfiguration _configuration;
+
+        public SettingsController(IConfiguration iconfig)
+        {
+            _configuration = iconfig;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
             return Json(new SettingsVm
             {
                 User = UserService.GetUserDetails("2")?.Data,
-                Message = ConfigurationManager.AppSettings["Settings:Message"]
-            }, JsonRequestBehavior.AllowGet);
+                Message = _configuration.GetValue<string>("Settings:Message")
+        }, JsonRequestBehavior.AllowGet);
         }
     }
 }
