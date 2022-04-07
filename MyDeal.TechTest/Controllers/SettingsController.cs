@@ -10,9 +10,9 @@ namespace MyDeal.TechTest.Controllers
         private IConfiguration _configuration;
         private IUserService _userService;
 
-        public SettingsController(IConfiguration iconfig, IUserService userService)
+        public SettingsController(IConfiguration configuration, IUserService userService)
         {
-            _configuration = iconfig;
+            _configuration = configuration;
             _userService = userService;
         }
 
