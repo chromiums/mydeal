@@ -1,7 +1,16 @@
+using MyDeal.TechTest.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddHttpClient<IUserService, UserService>(c =>
+{
+    c.BaseAddress = new Uri("https://reqres.in");
+});
 
 var app = builder.Build();
 

@@ -8,18 +8,22 @@ namespace MyDeal.TechTest.Controllers
     public class SettingsController : Controller
     {
         private IConfiguration _configuration;
+        private IUserService _userService;
 
-        public SettingsController(IConfiguration iconfig)
+        public SettingsController(IConfiguration iconfig, IUserService userService)
         {
             _configuration = iconfig;
+            _userService = userService;
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            var userResponse = await _userService.GetUserDetails("2");
+
             return Json(new SettingsVm
             {
-                User = UserService.GetUserDetails("2")?.Data,
+                User = userResponse?.Data,
                 Message = _configuration.GetValue<string>("Settings:Message")
             }, new JsonSerializerOptions { PropertyNamingPolicy = null });
         }
