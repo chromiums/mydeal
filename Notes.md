@@ -1,3 +1,5 @@
+# Areas for improvement
+
 | Area for improvement | Implemented? |
 |----------|:-------------:|
 | Convert UserService class into non-static | [x] |
@@ -23,3 +25,4 @@
 | Additional Unit Tests | [ ] |
 | Setup Error handling | [ ] |
 | Setup Logging | [ ] |
+| Documentation | [ ] |
