@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MyDeal.TechTest.Services
 {
-    public class UserData
+    internal class UserData
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public User Data { get; set; }
     }
 }

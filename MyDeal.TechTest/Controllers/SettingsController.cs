@@ -1,20 +1,32 @@
-﻿using MyDeal.TechTest.Models;
-using System.Configuration;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyDeal.TechTest.Services;
+using MyDeal.TechTest.Models;
+using System.Text.Json;
 
 namespace MyDeal.TechTest.Controllers
 {
     public class SettingsController : Controller
     {
-        [HttpGet]
-        public ActionResult Index()
+        private IConfiguration _configuration;
+        private IUserService _userService;
+
+        public SettingsController(IConfiguration configuration, IUserService userService)
         {
+            _configuration = configuration;
+            _userService = userService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Index()
+        {
+            var userResponse = await _userService.GetUserDetails("2");
+
+            // Setting PropertyNamingPolicy to null so that it doesn't auto camel-case all property names 
             return Json(new SettingsVm
             {
-                User = UserService.GetUserDetails("2")?.Data,
-                Message = ConfigurationManager.AppSettings["Settings:Message"]
-            }, JsonRequestBehavior.AllowGet);
+                User = userResponse,
+                Message = _configuration.GetValue<string>("Settings:Message")
+            }, new JsonSerializerOptions { PropertyNamingPolicy = null });
         }
     }
 }
